@@ -1,0 +1,309 @@
+/* --- Variables de Design --- */
+:root {
+    --bg-color: #060814;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.07);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-blue: #38bdf8;
+    --accent-purple: #c084fc;
+    --gradient-primary: linear-gradient(135deg, #38bdf8, #c084fc);
+}
+
+/* --- Reset & Base --- */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* --- Effets de lueurs en arrière-plan (Glow) --- */
+.blur-glow-1 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
+    top: -100px;
+    left: -100px;
+    z-index: -1;
+}
+.blur-glow-2 {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(192, 132, 252, 0.12) 0%, transparent 70%);
+    top: 400px;
+    right: -150px;
+    z-index: -1;
+}
+
+/* --- Header Épuré --- */
+header {
+    padding: 5rem 1rem 3rem 1rem;
+    text-align: center;
+}
+
+.badge {
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    color: var(--accent-blue);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 1.5rem 0 0.5rem 0;
+    letter-spacing: -0.05rem;
+}
+
+header h1 span {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- Container --- */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* --- Carte Glassmorphism --- */
+.project-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(56, 189, 248, 0.3);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-header h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.status-badge {
+    font-size: 0.8rem;
+    color: #4ade80;
+    background: rgba(74, 222, 128, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.description {
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+}
+
+/* --- Zone de Simulation (Preview Image) --- */
+.simulation-area {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    margin-bottom: 2rem;
+}
+
+.simulation-link {
+    display: block;
+    position: relative;
+    text-decoration: none;
+}
+
+.circuit-preview {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(6, 8, 20, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1; /* Reste visible pour inviter à cliquer */
+    transition: background 0.3s ease;
+    z-index: 2;
+}
+
+.play-icon {
+    background: var(--gradient-primary);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.simulation-link:hover .play-icon {
+    transform: scale(1.1);
+}
+
+.simulation-link:hover .image-overlay {
+    background: rgba(6, 8, 20, 0.5);
+}
+
+.image-overlay p {
+    color: #fff;
+    font-weight: 600;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* --- Tags de technologie --- */
+.project-details h3 {
+    font-size: 1rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    margin-bottom: 1rem;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.tag {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--card-border);
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    font-weight: 500;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.85rem;
+}
+/* Styles pour les nouvelles sections */
+.project-section {
+    margin-top: 3rem;
+    border-top: 1px solid var(--card-border);
+    padding-top: 2rem;
+}
+
+.section-intro {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+/* Boite de Code */
+.code-box {
+    background: #02040a;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+}
+.code-box pre { margin: 0; }
+.keyword { color: #ff7b72; font-weight: bold; }
+.string { color: #a5d6ff; }
+.comment { color: #8b949e; font-style: italic; }
+.number { color: #79c0ff; }
+.function { color: #d2a8ff; }
+
+/* Table de pinout */
+.pinout-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+.pinout-table th, .pinout-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.pinout-table th {
+    color: var(--accent-blue);
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+}
+.badge-gnd { background: rgba(239, 68, 68, 0.15); color: #ef4444; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem; }
+.badge-vcc { background: rgba(34, 197, 94, 0.15); color: #22c55e; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem; }
+
+/* Roadmap */
+.roadmap-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+}
+.roadmap-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.roadmap-bullet {
+    width: 8px;
+    height: 8px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    margin-top: 0.5rem;
+    flex-shrink: 0;
+}
+.roadmap-list p { margin: 0; color: var(--text-muted); font-size: 0.95rem; }
+.roadmap-list strong { color: var(--text-main); }
