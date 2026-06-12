@@ -2,7 +2,7 @@
 
 Bienvenue dans mon laboratoire virtuel ! Ce projet présente un système de sécurité complet et autonome combinant détection globale et télémétrie de précision.
 
-📺 **[Voir le site vitrine interactif en direct](https://ton-pseudo.github.io/radar-recul-arduino/)**
+📺 **[Voir le site vitrine interactif en direct](https://marwanmalhouni-dot.github.io/radar-recul-arduino/)**
 
 ## 🚀 Comment l'utiliser chez vous ?
 
